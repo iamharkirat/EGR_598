@@ -1,9 +1,15 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
 This folder contains all the required codes and workspaces to run this project.
 
-* data_collect.py
+Lane Following Autonomous Vehicle Project
 
+This repository contains the code and workspaces needed to run the lane-following autonomous vehicle project.
+
+One of the primary codes in this repository is the vel_subscriber which defines a ROS2 node, LaneFollower. This node uses a trained machine learning model to predict and publish linear and angular velocity commands for a robot, based on incoming images of a lane. This component plays a key role in our lane following system, presumably for an autonomous vehicle.
+
+Here's a detailed explanation of the various components:
+
+* data_collect.py
 
     This code is a Python script that creates a ROS (Robot Operating System) node for data collection from a simulated robot. It subscribes to two topics: one for receiving images and another for receiving velocity commands. The code saves the received images as PNG files and logs the timestamp, image file path, linear velocity, and angular velocity in a CSV file.
 
@@ -18,16 +24,6 @@ This folder contains all the required codes and workspaces to run this project.
     7. Run the main function: The script checks if it is being run directly (not imported as a module) using if __name__ == '__main__': and then calls the main() function to start the data collection node.
     
     This code is designed to run as a ROS node on a robot with appropriate topics and message types being published on '/color/preview/image' and '/cmd_vel' for image and velocity data, respectively. When the script is run, it will continuously collect image data and velocity commands from the robot and save them in the specified data directory as images and log them in the CSV file for further analysis or training machine learning models, for example.
-=======
-=======
->>>>>>> Stashed changes
-Lane Following Autonomous Vehicle Project
-
-This repository contains the code and workspaces needed to run the lane-following autonomous vehicle project.
-
-One of the primary codes in this repository is the vel_subscriber which defines a ROS2 node, LaneFollower. This node uses a trained machine learning model to predict and publish linear and angular velocity commands for a robot, based on incoming images of a lane. This component plays a key role in our lane following system, presumably for an autonomous vehicle.
-
-Here's a detailed explanation of the various components:
 
 * vel_subscriber:
 
@@ -46,9 +42,4 @@ Here's a detailed explanation of the various components:
     6. send_velocity_command function: This function generates a Twist message containing a linear and angular velocity, and publishes it on the /cmd_vel topic.
     7. main function: The main function is responsible for initializing the ROS2 communication, creating an instance of the LaneFollower node, spinning the node to prevent it from exiting, and finally cleaning up once the node has been stopped.
 
-<<<<<<< Updated upstream
-    This script is intended to be used in a larger system where images are being published to the /color/preview/image topic by a camera or similar sensor on the robot, and another part of the system is listening to the /cmd_vel topic to receive and execute velocity commands.
->>>>>>> Stashed changes
-=======
-    This script is intended to be used in a larger system where images are being published to the /color/preview/image topic by a camera or similar sensor on the robot, and another part of the system is listening to the /cmd_vel topic to receive and execute velocity commands.
->>>>>>> Stashed changes
+
